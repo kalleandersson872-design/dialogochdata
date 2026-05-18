@@ -44,7 +44,6 @@ header{
     margin:auto;
     height:100px;
     padding:0 40px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -82,9 +81,7 @@ nav a{
     font-weight:700;
     font-size:18px;
     padding:34px 0;
-
     border-bottom:3px solid transparent;
-
     transition:0.2s;
 }
 
@@ -96,10 +93,8 @@ nav a.active{
 
 .hero{
     min-height:720px;
-
     display:grid;
     grid-template-columns:1fr 1.15fr;
-
     background:#f7faf7;
 }
 
@@ -107,7 +102,6 @@ nav a.active{
     display:flex;
     flex-direction:column;
     justify-content:center;
-
     padding:90px 60px;
 }
 
@@ -115,20 +109,15 @@ nav a.active{
     font-size:92px;
     line-height:0.98;
     letter-spacing:-5px;
-
     margin-bottom:34px;
-
     max-width:760px;
 }
 
 .hero-left p{
     font-size:24px;
     line-height:1.7;
-
     color:#374151;
-
     max-width:700px;
-
     margin-bottom:42px;
 }
 
@@ -142,20 +131,13 @@ nav a.active{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-
     padding:18px 36px;
-
     border-radius:8px;
-
     font-weight:900;
     font-size:18px;
-
     text-transform:uppercase;
-
     border:2px solid #1f7a34;
-
     transition:0.2s;
-
     cursor:pointer;
 }
 
@@ -179,7 +161,6 @@ nav a.active{
 
 .hero-right{
     position:relative;
-
     background:
     linear-gradient(
         90deg,
@@ -188,9 +169,7 @@ nav a.active{
         rgba(247,250,247,0.15) 34%,
         rgba(247,250,247,0) 55%
     ),
-
     url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1800&auto=format&fit=crop");
-
     background-size:cover;
     background-position:center;
 }
@@ -198,24 +177,17 @@ nav a.active{
 .values{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-
     gap:30px;
-
     padding:50px 40px;
-
     background:white;
-
     border-top:1px solid #e5e5e5;
     border-bottom:1px solid #e5e5e5;
 }
 
 .value-card{
     padding:34px;
-
     border:1px solid #e8ece9;
-
     border-radius:20px;
-
     transition:0.2s;
 }
 
@@ -227,19 +199,13 @@ nav a.active{
 .icon{
     width:78px;
     height:78px;
-
     border-radius:50%;
-
     background:#edf6ef;
-
     color:#1f7a34;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:36px;
-
     margin-bottom:24px;
 }
 
@@ -260,11 +226,13 @@ nav a.active{
 .info-grid{
     max-width:1500px;
     margin:auto;
-
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
-
     gap:40px;
+}
+
+.info-grid.two{
+    grid-template-columns:1fr 1fr;
 }
 
 .info-box{
@@ -285,26 +253,26 @@ nav a.active{
 .line{
     width:70px;
     height:4px;
-
     background:#1f7a34;
-
     margin-bottom:24px;
 }
 
-.info-box p{
+.info-box p,
+.info-box li{
     font-size:18px;
     color:#374151;
     margin-bottom:18px;
 }
 
+.info-box ul{
+    padding-left:20px;
+}
+
 .pillars{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-
     gap:16px;
-
     margin-top:30px;
-
     text-align:center;
 }
 
@@ -315,19 +283,13 @@ nav a.active{
 .pillars span{
     width:64px;
     height:64px;
-
     border-radius:18px;
-
     background:#edf6ef;
-
     color:#1f7a34;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     margin:0 auto 12px;
-
     font-size:30px;
 }
 
@@ -338,13 +300,9 @@ nav a.active{
 .pillar-example img{
     width:100%;
     max-width:520px;
-
     border-radius:18px;
-
     border:1px solid #e5e5e5;
-
     box-shadow:0 12px 30px rgba(0,0,0,0.06);
-
     display:block;
 }
 
@@ -376,31 +334,33 @@ nav a.active{
     resize:vertical;
 }
 
+.reference-list{
+    font-size:16px;
+    color:#374151;
+}
+
+.reference-list a{
+    color:#1f7a34;
+    text-decoration:underline;
+}
+
 footer{
     background:#f1f8f3;
     border-top:1px solid #e5e5e5;
-
     padding:28px;
-
     text-align:center;
-
     font-size:16px;
-
     color:#374151;
 }
 
 .test-modal{
     position:fixed;
     inset:0;
-
     background:rgba(0,0,0,0.75);
-
     display:none;
     align-items:center;
     justify-content:center;
-
     z-index:9999;
-
     padding:40px;
 }
 
@@ -410,16 +370,11 @@ footer{
 
 .modal-content{
     position:relative;
-
     width:95%;
     height:92%;
-
     background:white;
-
     border-radius:20px;
-
     overflow:hidden;
-
     box-shadow:0 25px 80px rgba(0,0,0,0.35);
 }
 
@@ -433,21 +388,15 @@ footer{
     position:absolute;
     top:18px;
     right:18px;
-
     width:54px;
     height:54px;
-
     border:none;
     border-radius:50%;
-
     background:#1f7a34;
     color:white;
-
     font-size:28px;
     font-weight:900;
-
     cursor:pointer;
-
     z-index:10;
 }
 
@@ -473,16 +422,20 @@ footer{
     grid-template-columns:1fr 1fr;
 }
 
-.info-grid{
+.info-grid,
+.info-grid.two{
     grid-template-columns:1fr;
 }
 
 .info-box{
     border-left:none;
     border-top:1px solid #e5e5e5;
-
     padding-top:30px;
     padding-left:0;
+}
+
+.info-box:first-child{
+    border-top:none;
 }
 
 }
@@ -542,7 +495,7 @@ nav{
 <a href="#hem" class="brand">
 
 <img
-src="https://raw.githubusercontent.com/kalleandersson872-design/dialogdata/679d06ffe9cf5795a9781d50befe5deb587142cd/logga.jpg"
+src="https://images.squarespace-cdn.com/content/v1/693ac63cfa75b60b77ed778d/29de33e5-7cfd-4d30-847a-7cc43b7b35ec/logga+genomskinlig.png?format=1000w"
 alt="Dialog & Data logotyp">
 
 <span>Dialog & Data</span>
@@ -557,6 +510,7 @@ alt="Dialog & Data logotyp">
 <li><a href="#om">Om mig</a></li>
 <li><a href="#plattform">Min plattform</a></li>
 <li><a href="#kompetens">Kompetens</a></li>
+<li><a href="#etik">Etik</a></li>
 <li><a href="#kontakt">Kontakt</a></li>
 
 </ul>
@@ -616,13 +570,13 @@ Kontakta mig
 <div class="value-card">
 <div class="icon">↗</div>
 <h3>Hållbart</h3>
-<p>Holistiskt perspektiv för ett hållbart liv – fysiskt, psykiskt och socialt.</p>
+<p>Helhetsperspektiv där hälsa, relationer, livsvillkor och vardagsstruktur ses som sammanhängande delar.</p>
 </div>
 
 <div class="value-card">
 <div class="icon">♡</div>
 <h3>Empowerment</h3>
-<p>Stärka din egen förmåga att förstå, påverka och förbättra din hälsa.</p>
+<p>Stärker din egen förmåga att förstå, påverka och förbättra din hälsa.</p>
 </div>
 
 </section>
@@ -638,13 +592,12 @@ Kontakta mig
 <div class="line"></div>
 
 <p>
-Plattformen hjälper dig att förstå vilka delar av livet
-som påverkar ditt välmående och hur du kan skapa hållbar förändring.
+Plattformen riktar sig till vuxna personer som vill förstå vilka delar av livet
+som påverkar välmående, motivation och psykisk hälsa.
 </p>
 
 <p>
-Fokus ligger på psykisk hälsa, motivation,
-struktur och personlig utveckling.
+Målet är att ge ett enkelt första steg mot reflektion, struktur och hållbar förändring.
 </p>
 
 </div>
@@ -655,7 +608,7 @@ struktur och personlig utveckling.
 
 <div class="line"></div>
 
-<p>Ett holistiskt perspektiv på livet.</p>
+<p>Ett helhetsperspektiv på livsområden som påverkar hälsa och livsbalans.</p>
 
 <div class="pillars">
 
@@ -670,7 +623,7 @@ struktur och personlig utveckling.
 
 <img 
 src="https://github.com/kalleandersson872-design/dialogdata/blob/main/ditt_resultat.png?raw=true"
-alt="Exempelbild fyra pelarna">
+alt="Exempelbild från Dialog & Datas självskattning">
 
 </div>
 
@@ -683,13 +636,11 @@ alt="Exempelbild fyra pelarna">
 <div class="line"></div>
 
 <p>
-Plattformen består av ett övergripande test
-och efterföljs sedan av mer djupdykningar inom valt ämne.
+Plattformen består av ett digitalt självskattningstest som ger användaren en översiktlig bild av nuläget.
 </p>
 
 <p>
-Efter testet kan du kontakta mig
-för coachande samtal.
+Efter testet kan användaren kontakta mig för coachande samtal och fortsatt reflektion.
 </p>
 
 <div class="buttons">
@@ -717,15 +668,29 @@ Gör testet
 <div class="line"></div>
 
 <p>
-Jag heter Kalle Forshell och studerar folkhälsovetenskap
-med beteendevetenskaplig inriktning.
+Jag heter Kalle Forshell och studerar folkhälsovetenskap med beteendevetenskaplig inriktning.
+Mitt intresseområde är psykisk hälsa, motivation, personlig utveckling och hälsofrämjande arbete.
 </p>
 
 <p>
-Plattformen kombinerar folkhälsovetenskap,
-coaching och digitala verktyg för att skapa ett mer
-tillgängligt och modernt stöd.
+Dialog & Data är en plattform där jag kombinerar folkhälsovetenskap, coaching och digitala verktyg
+för att skapa ett tillgängligt stöd för reflektion och förändring.
 </p>
+
+</div>
+
+<div class="info-box">
+
+<h2>Utbildning & kompetens</h2>
+
+<div class="line"></div>
+
+<ul>
+<li>Kandidatprogram i folkhälsovetenskap med beteendevetenskaplig inriktning.</li>
+<li>Kunskap inom hälsopromotion, empowerment, psykisk hälsa och hälsolitteracitet.</li>
+<li>Erfarenhet av digital kommunikation, målgruppsanpassning och webbplattformar.</li>
+<li>Fördjupat intresse för motiverande samtal och coachande förhållningssätt.</li>
+</ul>
 
 </div>
 
@@ -736,8 +701,7 @@ tillgängligt och modernt stöd.
 <div class="line"></div>
 
 <p>
-För frågor om coaching,
-plattformen eller vidare dialog.
+För frågor om coaching, plattformen eller vidare dialog.
 </p>
 
 <p>
@@ -746,6 +710,14 @@ kalle.forshell@gmail.com
 </p>
 
 </div>
+
+</div>
+
+</section>
+
+<section class="info-section">
+
+<div class="info-grid two">
 
 <div class="info-box">
 
@@ -797,6 +769,37 @@ Skicka
 </button>
 
 </form>
+
+</div>
+
+<div class="info-box" id="etik">
+
+<h2>Etik och källkritik</h2>
+
+<div class="line"></div>
+
+<p>
+Plattformen är ett hälsofrämjande och coachande stöd. Den ersätter inte vård, terapi,
+diagnostik eller behandling.
+</p>
+
+<p>
+Vid akut psykisk ohälsa, suicidtankar eller allvarlig kris bör användaren kontakta
+1177, vårdcentral, psykiatrisk akutmottagning eller 112 vid omedelbar fara.
+</p>
+
+<p>
+Bilder och texter används med syfte att informera och tydliggöra plattformens innehåll.
+Innehållet bygger på folkhälsovetenskapliga begrepp som hälsopromotion, empowerment
+och hälsolitteracitet.
+</p>
+
+<p class="reference-list">
+Referenser kan exempelvis kompletteras med:
+<a href="https://www.folkhalsomyndigheten.se/" target="_blank">Folkhälsomyndigheten</a>,
+<a href="https://www.1177.se/" target="_blank">1177</a> och
+<a href="https://www.socialstyrelsen.se/" target="_blank">Socialstyrelsen</a>.
+</p>
 
 </div>
 
