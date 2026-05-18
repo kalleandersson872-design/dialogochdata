@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dialog & Data</title>
+
+<style>
+
+html{
+    scroll-behavior:smooth;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    color:#111827;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#ffffff;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.nav{
+    max-width:1920px;
+    margin:auto;
+    height:100px;
+    padding:0 40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex:1;
+}
+
+.brand img{
+    height:92px;
+    width:auto;
+    display:block;
+    object-fit:contain;
+}
+
+.brand span{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:-1.5px;
+    color:#111827;
+    white-space:nowrap;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:42px;
+}
+
+nav a{
+    font-weight:700;
+    font-size:18px;
+    padding:34px 0;
+
+    border-bottom:3px solid transparent;
+
+    transition:0.2s;
+}
+
+nav a:hover,
+nav a.active{
+    color:#1f7a34;
+    border-bottom-color:#1f7a34;
+}
+
+.hero{
+    min-height:720px;
+
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+
+    background:#f7faf7;
+}
+
+.hero-left{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:90px 60px;
+}
+
+.hero-left h1{
+    font-size:92px;
+    line-height:0.98;
+    letter-spacing:-5px;
+
+    margin-bottom:34px;
+
+    max-width:760px;
+}
+
+.hero-left p{
+    font-size:24px;
+    line-height:1.7;
+
+    color:#374151;
+
+    max-width:700px;
+
+    margin-bottom:42px;
+}
+
+.buttons{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:18px 36px;
+
+    border-radius:8px;
+
+    font-weight:900;
+    font-size:18px;
+
+    text-transform:uppercase;
+
+    border:2px solid #1f7a34;
+
+    transition:0.2s;
+
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#1f7a34;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#176429;
+}
+
+.btn-secondary{
+    background:transparent;
+    color:#1f7a34;
+}
+
+.btn-secondary:hover{
+    background:#edf6ef;
+}
+
+.hero-right{
+    position:relative;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(247,250,247,0.98) 0%,
+        rgba(247,250,247,0.78) 12%,
+        rgba(247,250,247,0.15) 34%,
+        rgba(247,250,247,0) 55%
+    ),
+
+    url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1800&auto=format&fit=crop");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.values{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    padding:50px 40px;
+
+    background:white;
+
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.value-card{
+    padding:34px;
+
+    border:1px solid #e8ece9;
+
+    border-radius:20px;
+
+    transition:0.2s;
+}
+
+.value-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(0,0,0,0.05);
+}
+
+.icon{
+    width:78px;
+    height:78px;
+
+    border-radius:50%;
+
+    background:#edf6ef;
+
+    color:#1f7a34;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:36px;
+
+    margin-bottom:24px;
+}
+
+.value-card h3{
+    font-size:28px;
+    margin-bottom:14px;
+}
+
+.value-card p{
+    font-size:18px;
+    color:#374151;
+}
+
+.info-section{
+    padding:80px 40px;
+}
+
+.info-grid{
+    max-width:1500px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:40px;
+}
+
+.info-box{
+    padding-left:30px;
+    border-left:1px solid #e5e5e5;
+}
+
+.info-box:first-child{
+    border-left:none;
+    padding-left:0;
+}
+
+.info-box h2{
+    font-size:38px;
+    margin-bottom:14px;
+}
+
+.line{
+    width:70px;
+    height:4px;
+
+    background:#1f7a34;
+
+    margin-bottom:24px;
+}
+
+.info-box p{
+    font-size:18px;
+    color:#374151;
+    margin-bottom:18px;
+}
+
+.pillars{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:16px;
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.pillars div{
+    font-weight:700;
+}
+
+.pillars span{
+    width:64px;
+    height:64px;
+
+    border-radius:18px;
+
+    background:#edf6ef;
+
+    color:#1f7a34;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 12px;
+
+    font-size:30px;
+}
+
+.pillar-example{
+    margin-top:40px;
+}
+
+.pillar-example img{
+    width:100%;
+    max-width:520px;
+
+    border-radius:18px;
+
+    border:1px solid #e5e5e5;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.06);
+
+    display:block;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:10px;
+}
+
+.contact-form label{
+    font-weight:700;
+    font-size:16px;
+    color:#111827;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.contact-form textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+footer{
+    background:#f1f8f3;
+    border-top:1px solid #e5e5e5;
+
+    padding:28px;
+
+    text-align:center;
+
+    font-size:16px;
+
+    color:#374151;
+}
+
+.test-modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.75);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    z-index:9999;
+
+    padding:40px;
+}
+
+.test-modal.active{
+    display:flex;
+}
+
+.modal-content{
+    position:relative;
+
+    width:95%;
+    height:92%;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 25px 80px rgba(0,0,0,0.35);
+}
+
+.modal-content iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+.close-modal{
+    position:absolute;
+    top:18px;
+    right:18px;
+
+    width:54px;
+    height:54px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#1f7a34;
+    color:white;
+
+    font-size:28px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+.close-modal:hover{
+    background:#176429;
+}
+
+@media(max-width:1200px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+.hero-right{
+    min-height:420px;
+}
+
+.hero-left h1{
+    font-size:72px;
+}
+
+.values{
+    grid-template-columns:1fr 1fr;
+}
+
+.info-grid{
+    grid-template-columns:1fr;
+}
+
+.info-box{
+    border-left:none;
+    border-top:1px solid #e5e5e5;
+
+    padding-top:30px;
+    padding-left:0;
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+    display:none;
+}
+
+.hero-left{
+    padding:60px 24px;
+}
+
+.hero-left h1{
+    font-size:56px;
+    letter-spacing:-3px;
+}
+
+.hero-left p{
+    font-size:20px;
+}
+
+.values{
+    grid-template-columns:1fr;
+    padding:30px 20px;
+}
+
+.info-section{
+    padding:50px 20px;
+}
+
+.pillars{
+    grid-template-columns:1fr 1fr;
+}
+
+.brand img{
+    height:78px;
+}
+
+.brand span{
+    font-size:26px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="#hem" class="brand">
+
+<img
+src="https://raw.githubusercontent.com/kalleandersson872-design/dialogdata/679d06ffe9cf5795a9781d50befe5deb587142cd/logga.jpg"
+alt="Dialog & Data logotyp">
+
+<span>Dialog & Data</span>
+
+</a>
+
+<nav>
+
+<ul>
+
+<li><a href="#hem" class="active">Hem</a></li>
+<li><a href="#om">Om mig</a></li>
+<li><a href="#plattform">Min plattform</a></li>
+<li><a href="#kompetens">Kompetens</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero" id="hem">
+
+<div class="hero-left">
+
+<h1>
+Stärk din hälsa
+</h1>
+
+<p>
+Ta kontroll över ditt välmående och skapa verklig förändring.
+Genom coaching, reflektion och ett helhetsperspektiv får du verktyg
+för att stärka ditt liv, hitta riktning och bygga hållbara vanor.
+</p>
+
+<div class="buttons">
+
+<button class="btn btn-primary" onclick="openTest()">
+Gör testet
+</button>
+
+<a class="btn btn-secondary" href="#kontakt">
+Kontakta mig
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right"></div>
+
+</section>
+
+<section class="values" id="om">
+
+<div class="value-card">
+<div class="icon">♧</div>
+<h3>Evidensbaserat</h3>
+<p>Bygger på forskning inom folkhälsa, psykisk hälsa och motiverande samtal.</p>
+</div>
+
+<div class="value-card">
+<div class="icon">♙</div>
+<h3>Individfokuserat</h3>
+<p>Verktyg och stöd anpassade efter dina behov, för att du ska kunna ta nästa steg.</p>
+</div>
+
+<div class="value-card">
+<div class="icon">↗</div>
+<h3>Hållbart</h3>
+<p>Holistiskt perspektiv för ett hållbart liv – fysiskt, psykiskt och socialt.</p>
+</div>
+
+<div class="value-card">
+<div class="icon">♡</div>
+<h3>Empowerment</h3>
+<p>Stärka din egen förmåga att förstå, påverka och förbättra din hälsa.</p>
+</div>
+
+</section>
+
+<section class="info-section" id="plattform">
+
+<div class="info-grid">
+
+<div class="info-box">
+
+<h2>För dig som vill må bättre</h2>
+
+<div class="line"></div>
+
+<p>
+Plattformen hjälper dig att förstå vilka delar av livet
+som påverkar ditt välmående och hur du kan skapa hållbar förändring.
+</p>
+
+<p>
+Fokus ligger på psykisk hälsa, motivation,
+struktur och personlig utveckling.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h2>De fyra pelarna</h2>
+
+<div class="line"></div>
+
+<p>Ett holistiskt perspektiv på livet.</p>
+
+<div class="pillars">
+
+<div><span>▣</span>Ekonomi</div>
+<div><span>♙</span>Relationer</div>
+<div><span>♡</span>Fysisk hälsa</div>
+<div><span>▤</span>Sysselsättning</div>
+
+</div>
+
+<div class="pillar-example">
+
+<img 
+src="https://github.com/kalleandersson872-design/dialogdata/blob/main/ditt_resultat.png?raw=true"
+alt="Exempelbild fyra pelarna">
+
+</div>
+
+</div>
+
+<div class="info-box">
+
+<h2>Plattformen</h2>
+
+<div class="line"></div>
+
+<p>
+Plattformen består av ett övergripande test
+och efterföljs sedan av mer djupdykningar inom valt ämne.
+</p>
+
+<p>
+Efter testet kan du kontakta mig
+för coachande samtal.
+</p>
+
+<div class="buttons">
+
+<button class="btn btn-primary" onclick="openTest()">
+Gör testet
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="kompetens" class="info-section">
+
+<div class="info-grid">
+
+<div class="info-box">
+
+<h2>Om mig</h2>
+
+<div class="line"></div>
+
+<p>
+Jag heter Kalle Forshell och studerar folkhälsovetenskap
+med beteendevetenskaplig inriktning.
+</p>
+
+<p>
+Plattformen kombinerar folkhälsovetenskap,
+coaching och digitala verktyg för att skapa ett mer
+tillgängligt och modernt stöd.
+</p>
+
+</div>
+
+<div class="info-box" id="kontakt">
+
+<h2>Kontakt</h2>
+
+<div class="line"></div>
+
+<p>
+För frågor om coaching,
+plattformen eller vidare dialog.
+</p>
+
+<p>
+<strong>E-post:</strong><br>
+kalle.forshell@gmail.com
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h2>Skicka meddelande</h2>
+
+<div class="line"></div>
+
+<form
+class="contact-form"
+action="https://formsubmit.co/kalle.forshell@gmail.com"
+method="POST"
+>
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="Nytt meddelande från Dialog & Data">
+<input type="hidden" name="_next" value="https://kalleandersson872-design.github.io/">
+
+<label for="name">Namn</label>
+
+<input
+id="name"
+name="Namn"
+type="text"
+required
+>
+
+<label for="email">E-post</label>
+
+<input
+id="email"
+name="E-post"
+type="email"
+required
+>
+
+<label for="message">Meddelande</label>
+
+<textarea
+id="message"
+name="Meddelande"
+required
+></textarea>
+
+<button
+class="btn btn-primary"
+type="submit"
+>
+Skicka
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Dialog & Data AB – Folkhälsobaserad coaching och livsutveckling |
+Kontakt: kalle.forshell@gmail.com
+
+</footer>
+
+<div class="test-modal" id="testModal">
+
+<div class="modal-content">
+
+<button class="close-modal" onclick="closeTest()">
+×
+</button>
+
+<iframe src="https://kalleandersson872-design.github.io/Coachingtest/"></iframe>
+
+</div>
+
+</div>
+
+<script>
+
+function openTest(){
+    document.getElementById('testModal').classList.add('active');
+    document.body.style.overflow='hidden';
+}
+
+function closeTest(){
+    document.getElementById('testModal').classList.remove('active');
+    document.body.style.overflow='auto';
+}
+
+</script>
+
+</body>
+</html>
